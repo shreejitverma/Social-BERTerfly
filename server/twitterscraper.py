@@ -41,13 +41,10 @@ class TwitterClient(object):
             # Pull information from tweets iterable object
             tweets_list = [[tweet.text] for tweet in tweets]
 
-            # Create dataframe from tweets list
-            tweets_df = pd.DataFrame(tweets_list)
+            return pd.DataFrame(tweets_list)
 
-            return tweets_df
-        
         except BaseException as e:
-            print('failed on_status,',str(e))
+            print('failed on_status,', e)
             time.sleep(3)
     def get_user_followers(self,user):
         # to fetch 5 following of the user and their personality types
